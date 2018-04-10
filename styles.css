@@ -1,0 +1,11 @@
+.demo-card-square.mdl-card {
+  width: 50%;
+  margin: auto;
+}
+.demo-card-square > .mdl-card__title {
+  color: #000;
+  padding-top: 200px;
+  font-weight: bold;
+  background:
+    url('/background.jpg') center 15% no-repeat #46B6AC;
+}
