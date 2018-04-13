@@ -5,7 +5,9 @@ function onReady() {
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     //get the text//
-    let title = newToDoText.value;
+    let title = document.createElement('div');
+    title.textContent = newToDoText.value;
+    title.className = 'mdl-list__item-primary-content';
     //create a new li
     let newLi = document.createElement('li');
     newLi.className = 'mdl-list__item';
@@ -13,15 +15,14 @@ function onReady() {
     let checkbox = document.createElement('input');
     //set the input's type to checkbox
     checkbox.type = "checkbox";
-    checkbox.className = 'mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-checkbox__input';
     //create a delete button
     let deleteButton = document.createElement('button');
     deleteButton.textContent = "Delete";
     deleteButton.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
-    //set the title
-    newLi.textContent = title;
     //attach the checkbox to the li
     newLi.appendChild(checkbox);
+    //set the title
+    newLi.appendChild(title);
     //attach the deleteButton to the li
     newLi.appendChild(deleteButton);
     //attach the li to the ul
