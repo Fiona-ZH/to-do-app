@@ -6,6 +6,7 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
 
   function createNewToDo() {
+
     const newToDoText = document.getElementById('newToDoText');
     if (!newToDoText.value) {
       alert("Input can not be empty");
@@ -32,8 +33,11 @@ function onReady() {
       toDoList.textContent = '';
 
       toDos.forEach(function(toDo){
+        let title = document.createElement('div');
+        title.textContent = toDo.title;
+        title.className = 'mdl-list__item-primary-content';
         const newLi = document.createElement('li');
-        newLi.textContent = toDo.title;
+        newLi.className = 'mdl-list__item';
 
         const checkbox = document.createElement('input');
         checkbox.type = "checkbox";
@@ -55,6 +59,7 @@ function onReady() {
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = "Delete";
+        deleteButton.className = 'mdl-button mdl-js-button mdl-js-ripple-effect';
 
         function deleteLi(){
           toDos = toDos.filter(function(todo){
@@ -67,6 +72,7 @@ function onReady() {
 
         toDoList.appendChild(newLi);
         newLi.appendChild(checkbox);
+        newLi.appendChild(title);
         newLi.appendChild(deleteButton);
 
       });
