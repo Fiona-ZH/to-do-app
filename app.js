@@ -2,6 +2,7 @@ function onReady() {
   let iD = 0;
   localStorage.getItem("toDo");
   var toDos = JSON.parse(localStorage.getItem("toDo"));
+  if (toDos == null) { toDos = []; }
 
   const addToDoForm = document.getElementById('addToDoForm');
 
@@ -53,6 +54,7 @@ function onReady() {
           } else {
             toDo.complete = false;
           }
+          localStorage.setItem("toDo", JSON.stringify(toDos));
         }
 
         checkbox.addEventListener('click', toggle);
